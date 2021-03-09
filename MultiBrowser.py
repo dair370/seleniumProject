@@ -2,11 +2,17 @@ from selenium import webdriver
 import time
 from threading import Thread
 
+path2 ="C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"
+
+
+
 def test_search(browser, url):
     if browser == "chrome":
         driver = webdriver.Chrome()
     elif browser == "edge":
         driver = webdriver.Edge("C:\Program Files (x86)\Microsoft\Edge\Application\msedgedriver.exe")
+    elif browser == "firefox":
+        driver = webdriver.Firefox(firefox_binary=path2)
 
     driver.get(url)
     print(driver.current_url)
@@ -22,7 +28,8 @@ if __name__ == "__main__":
     # 浏览器和首页url
     data = {
         "chrome":"https://www.google.com.tw/",
-        "edge":"https://www.google.com.tw/"
+        "edge":"https://www.google.com.tw/",
+        "firefox": "https://www.google.com.tw/"
         }
 
 
