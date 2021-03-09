@@ -4,8 +4,6 @@ from threading import Thread
 
 path2 ="C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"
 
-
-
 def test_search(browser, url):
     if browser == "chrome":
         driver = webdriver.Chrome()
