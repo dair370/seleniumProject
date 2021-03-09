@@ -1,3 +1,4 @@
+from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 import time
 from threading import Thread
@@ -16,9 +17,9 @@ def test_search(browser, url):
     print(driver.current_url)
     print(driver.title)
     driver.find_element_by_name('q').send_keys('selenium')
-    driver.find_element_by_name('btnK').click()
+    driver.find_element_by_name('q').send_keys(Keys.ENTER)
     print(driver.title)
-    time.sleep(2)
+    time.sleep(3)
     driver.close()
     driver.quit()
 
