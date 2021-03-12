@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-
 class eesignupCase(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -16,7 +15,7 @@ class eesignupCase(unittest.TestCase):
     def test_eesingin(self):
         driver = self.driver
         that_day = time.strftime("%Y%m%d", time.localtime(time.time())) #當天日期
-        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.LINK_TEXT, "註冊")))
+        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.LINK_TEXT, "註冊"))) #顯示等待 30秒內每隔0.5毫秒掃描1次頁面變化
         driver.find_element_by_link_text("註冊").click()
         print(driver.current_url)
         print(driver.title)

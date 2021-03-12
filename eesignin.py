@@ -16,7 +16,7 @@ class eesigninCase(unittest.TestCase):
         driver = self.driver
         print(driver.current_url)
         print(driver.title)
-        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "登入")))  #顯示等待 10秒內每隔0.5毫秒掃描1次頁面變化
+        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "登入"))) #顯示等待 30秒內每隔0.5毫秒掃描1次頁面變化
         driver.find_element_by_partial_link_text ("登入").click()
         print(driver.title)
         driver.find_element_by_name("account").send_keys("admin")
