@@ -19,6 +19,7 @@ class eesignupCase(unittest.TestCase):
         driver.find_element_by_link_text("註冊").click()
         print(driver.current_url)
         print(driver.title)
+        time.sleep(1)
         driver.find_element_by_name("account").send_keys("user" + that_day)
         print(that_day)
         driver.find_element_by_name("fullName").send_keys("使用者" + that_day)
