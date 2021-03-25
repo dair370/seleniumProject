@@ -12,7 +12,7 @@ class eesignupCase(unittest.TestCase):
         self.driver.implicitly_wait(3)  #隱式等待3秒
         self.driver.get("http://eeauto.devtest.tk/")
 
-    def test_eesingin(self):
+    def test_eesingup(self):
         driver = self.driver
         that_day = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time())) #當天日期時間
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.LINK_TEXT, "註冊"))) #顯示等待 30秒內每隔0.5毫秒掃描1次頁面變化
