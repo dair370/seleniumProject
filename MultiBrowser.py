@@ -24,7 +24,7 @@ def test_search(browser, url):
     driver.quit()
 
 if __name__ == "__main__":
-    # 浏览器和首页url
+    # 瀏覽器和首頁url
     data = {
         "chrome":"https://www.google.com.tw/",
         "edge":"https://www.google.com.tw/",
@@ -32,12 +32,13 @@ if __name__ == "__main__":
         }
 
 
-    # 构建线程
+    # 構建線程
     threads = []
     for b, url in data.items():
        t = Thread(target=test_search,args=(b,url))
        threads.append(t)
 
-    # 启动所有线程
+    # 啟用所有線程
     for thr in threads:
         thr.start()
+        thr.join() #此處註解掉會同時運行，但同時運行可能遮擋導致有問題。
