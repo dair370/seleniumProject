@@ -16,16 +16,15 @@ class EasySign(unittest.TestCase):
         driver = self.driver
         print(driver.current_url)
         print(driver.title)
-        self.assertEqual(driver.title, "登入 | autofms 導覽列", "網站標題不正確")
-        time.sleep(1)
+        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.NAME, 'account')))
         driver.find_element_by_name('account').send_keys('admin')
         driver.find_element_by_name('password').send_keys('111111')
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-primary')))
         driver.find_element_by_class_name('btn-primary').click()
-        time.sleep(1)
         Banner = driver.find_element_by_xpath('//*[@id="page-banner"]').text
         print(Banner)
         self.assertEqual(Banner, "autofms Banner", "Banner不正確")
+        time.sleep(2)
 
     def tearDown(self):
         self.driver.quit()
