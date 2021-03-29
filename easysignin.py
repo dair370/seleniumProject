@@ -21,9 +21,9 @@ class EasySign(unittest.TestCase):
         driver.find_element_by_name('password').send_keys('111111')
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-primary')))
         driver.find_element_by_class_name('btn-primary').click()
-        Banner = driver.find_element_by_xpath('//*[@id="page-banner"]').text
-        print(Banner)
-        self.assertEqual(Banner, "autofms Banner", "Banner不正確")
+        admin = driver.find_element_by_link_text('系統管理者').text
+        print(admin)
+        self.assertEqual(admin, "系統管理者", "系統管理者沒成功登入")
         time.sleep(2)
 
     def tearDown(self):
