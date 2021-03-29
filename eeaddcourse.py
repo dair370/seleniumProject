@@ -17,7 +17,7 @@ class eeaddcourseCase(unittest.TestCase):
 
     def test_eeaddcourse(self):
         driver = self.driver
-        current_time = time.strftime("%Y/%m/%d/ %H:%M", time.localtime(time.time()))
+        current_time = time.strftime("%Y/%m/%d/ %H", time.localtime(time.time()))
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.LINK_TEXT, "admin"))) #顯示等待 30秒內每隔0.5毫秒掃描1次頁面變化
         driver.find_element_by_link_text("admin").click()
         driver.find_element_by_class_name("dropdown-toggle").click()
