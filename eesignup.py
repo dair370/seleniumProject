@@ -26,9 +26,10 @@ class eesignupCase(unittest.TestCase):
         driver.find_element_by_name("password").send_keys("111111")
         driver.find_element_by_name("password2").send_keys("111111")
         driver.find_element_by_name("email").send_keys("dair370" + "+" + that_day + "@powercam.com.tw")
-        checkboxs = driver.find_elements_by_css_selector('input[type=checkbox]') #將目前所有的CheckBox選取
-        for checkbox in checkboxs:
-            checkbox.click()
+        driver.find_element_by_xpath('//*[@value="1"]').click()
+        #checkboxs = driver.find_elements_by_css_selector('input[type=checkbox]') #將目前所有的CheckBox選取
+        #for checkbox in checkboxs:
+            #checkbox.click()
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CLASS_NAME, "btn-primary")))
         driver.find_element_by_class_name("btn-primary").click()
         time.sleep(1)
