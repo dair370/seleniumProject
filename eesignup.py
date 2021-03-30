@@ -14,7 +14,7 @@ class eesignupCase(unittest.TestCase):
 
     def test_eesingup(self):
         driver = self.driver
-        that_day = time.strftime("%Y%m%d%H", time.localtime(time.time())) #當天日期時間
+        that_day = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time())) #當天日期時間
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.LINK_TEXT, "註冊"))) #顯示等待 30秒內每隔0.5毫秒掃描1次頁面變化
         driver.find_element_by_link_text("註冊").click()
         print(driver.current_url)
@@ -31,6 +31,7 @@ class eesignupCase(unittest.TestCase):
             checkbox.click()
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CLASS_NAME, "btn-primary")))
         driver.find_element_by_class_name("btn-primary").click()
+        time.sleep(1)
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CLASS_NAME, "fs-infobox-title")))
         text = driver.find_element_by_class_name("fs-infobox-title").text
         print(text)

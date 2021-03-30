@@ -26,8 +26,9 @@ class eesigninCase(unittest.TestCase):
         root = driver.find_element_by_partial_link_text("系統管理者").text
         print(root)
         self.assertEqual("系統管理者",root,"管理者姓名錯誤") #驗證(expected在前，actual在後)
-        driver.find_element_by_partial_link_text("登出").click()
         time.sleep(2)
+        driver.find_element_by_partial_link_text("登出").click()
+        time.sleep(1)
 
     def tearDown(self):
         self.driver.close()
