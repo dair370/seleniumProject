@@ -12,7 +12,7 @@ class eeaddtextbookCase(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()    #視窗最大化
-        self.driver.implicitly_wait(60)  #隱式等待60秒
+        self.driver.implicitly_wait(600)  #隱式等待600秒
         self.driver.get("http://eeauto.devtest.tk/")
 
     def test_eeaddtextbook(self):
